@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모빌리티 동아리 홍보 웹사이트</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            
+        }
+        
+        header {
+            background-color: #4285f4;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .slider-container {
+            width: 80%;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .slider-content {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .section {
+            flex: 0 0 100%;
+            max-width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        
+        .button {
+            display: inline-block;
+            background-color: #4285f4;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .button:hover {
+            background-color: #357ae8;
+        }
+
+        /* 현재 섹션을 강조하기 위한 스타일 */
+        nav ul li.current a {
+            font-weight: bold;
+            font-size: 1.2em; /* 폰트 사이즈를 1.2배로 증가 */
+        }
+
+        /* 작은 점 4개를 나타내는 스타일 */
+        .indicator {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .indicator span {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: #ccc;
+            border-radius: 50%;
+            margin: 0 5px;
+            transition: transform 0.3s ease; /* 애니메이션 추가 */
+        }
+
+        /* 현재 섹션에 해당하는 메뉴 항목을 더 강조하는 스타일 */
+        nav ul li.current a {
+            font-weight: bold;
+            font-size: 1.2em; /* 폰트 사이즈를 1.2배로 증가 */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>모빌리티 동아리</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">동아리 소개</a></li>
+                <li><a href="#activities">활동</a></li>
+                <li><a href="#join">가입하기</a></li>
+                <li><a href="#contact">연락처</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="slider-container">
+            <div class="slider-content">
+                <div class="section" id="about">
+                    <h2>동아리 소개</h2>
+                    <img src="./빨간버튼.jpg">
+                    <p>모빌리티 동아리는 자동차, 비행기, 기차 등의 이동 수단과 관련된 기술 및 관심사를 공유하는 학생들의 모임입니다.</p>
+                    <p>우리 동아리는 새로운 기술 및 혁신적인 아이디어에 열려 있으며, 다양한 프로젝트와 이벤트를 진행하고 있습니다.</p>
+                </div>
+                <div class="section" id="activities">
+                    <h2>활동</h2>
+                    <img src="./빨간버튼.jpg">
+                    <ul>
+                        <li>기술 세미나 및 워크샵</li>
+                        <li>자동차 경주 대회</li>
+                        <li>드론 조종 대회</li>
+                        <li>산업 현장 견학</li>
+                    </ul>
+                </div>
+                <div class="section" id="join">
+                    <h2>가입하기</h2>
+                    <img src="./빨간버튼.jpg">
+                    <p>우리 동아리에 가입하고 모빌리티와 관련된 새로운 친구들을 만나보세요!</p>
+                    <a href="회원가입페이지링크" class="button">가입 신청하기</a>
+                </div>
+                <div class="section" id="contact">
+                    <h2>연락처</h2>
+                    <img src="./빨간버튼.jpg">
+                    <p>문의 사항이 있으시면 언제든지 연락주세요.</p>
+                    <p>Email: mobilityclub@gmail.com</p>
+                    <p>전화번호: 010-4620-9396</p>
+                </div>
+            </div>
+        </div>
+       
+        <div class="indicator">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 모빌리티 동아리</p>
+    </footer>
+    <script>
+        const sliderContent = document.querySelector('.slider-content');
+        const sections = document.querySelectorAll('.section');
+        const numSections = sections.length;
+        let currentIndex = 0;
+    
+       
+        const indicator = document.querySelector('.indicator');
+        const indicatorSpans = indicator.querySelectorAll('span');
+    
+               function highlightIndicator(index) {
+            indicatorSpans.forEach((span, i) => {
+                if (i === index) {
+                    span.style.transform = 'scale(1.5)';
+                } else {
+                    span.style.transform = 'scale(1)';
+                }
+            });
+        }
+    
+     
+        showSection(currentIndex);
+        highlightIndicator(currentIndex); 
+    
+        
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft') {
+                currentIndex--;
+                showSection(currentIndex);
+                highlightIndicator(currentIndex);
+            } else if (event.key === 'ArrowRight') {
+                currentIndex++;
+                showSection(currentIndex);
+                highlightIndicator(currentIndex);
+            }
+        });
+    
+        
+        document.querySelectorAll('nav ul li a').forEach((link, index) => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                currentIndex = index;
+                showSection(currentIndex);
+                highlightIndicator(currentIndex);
+            });
+        });
+    
+        function showSection(index) {
+            if (index < 0) {
+                currentIndex = numSections - 1;
+            } else if (index >= numSections) {
+                currentIndex = 0;
+            }
+    
+            const offset = -currentIndex * 100;
+            sliderContent.style.transform = `translateX(${offset}%)`;
+    
+            highlightCurrentNavItem(currentIndex); 
+        }
+    
+        
+        function highlightCurrentNavItem(index) {
+            document.querySelectorAll('nav ul li.current').forEach(item => {
+                item.classList.remove('current');
+            });
+            document.querySelectorAll('nav ul li')[index].classList.add('current');
+        }
+    </script>
+    
+</body>
+</html>
+
