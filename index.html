@@ -239,7 +239,7 @@
             document.querySelectorAll('nav ul li')[index].classList.add('current');
         }
     </script>
-     <script>
+    <script>
         const sliderContent = document.querySelector('.slider-content');
         const sections = document.querySelectorAll('.section');
         const numSections = sections.length;
@@ -258,7 +258,6 @@
             const diffX = endX - startX;
             const diffY = endY - startY;
 
-            // X축 이동이 Y축 이동보다 크고, X축 이동량이 일정 값 이상이면 스와이프로 인식
             if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
                 if (diffX > 0) {
                     currentIndex--;
@@ -286,13 +285,9 @@
             // 페이지 인디케이터 강조 로직
         }
 
-        // 터치 이벤트 리스너 등록
-        sliderContent.addEventListener('touchstart', handleTouchStart);
-        sliderContent.addEventListener('touchmove', handleTouchMove);
-
         // 페이지 로드시 첫 번째 섹션 보이기
         showSection(currentIndex);
-    </script>
+     </script>
 </body>
 </html>
 
