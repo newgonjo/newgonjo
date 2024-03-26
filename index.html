@@ -287,6 +287,10 @@
 
         // 페이지 로드시 첫 번째 섹션 보이기
         showSection(currentIndex);
+
+        // 터치 이벤트 리스너 추가
+        document.addEventListener('touchstart', handleTouchStart, false);
+        document.addEventListener('touchmove', handleTouchMove, false);
     </script>
 </body>
 </html>
